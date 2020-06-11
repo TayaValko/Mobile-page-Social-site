@@ -1,0 +1,543 @@
+@import '_device_mixin';
+
+//Fonts
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/css/font/Montserrat-Regular.eot');
+    src: local('Montserrat Regular'), local('Montserrat-Regular'),
+        url('../css/font/Montserrat-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../css/font/Montserrat-Regular.woff2') format('woff2'),
+        url('../css/font/Montserrat-Regular.woff') format('woff'),
+        url('../css/font/Montserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/css/font/Montserrat-Bold.eot');
+    src: local('Montserrat Bold'), local('Montserrat-Bold'),
+        url('../css/font/Montserrat-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../css/font/Montserrat-Bold.woff2') format('woff2'),
+        url('../css/font/Montserrat-Bold.woff') format('woff'),
+        url('../css/font/Montserrat-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/css/font/Montserrat-Thin.eot');
+    src: local('Montserrat Thin'), local('Montserrat-Thin'),
+        url('../css/font/Montserrat-Thin.eot?#iefix') format('embedded-opentype'),
+        url('../css/font/Montserrat-Thin.woff2') format('woff2'),
+        url('../css/font/Montserrat-Thin.woff') format('woff'),
+        url('../css/font/Montserrat-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/css/font/Montserrat-ExtraLight.eot');
+    src: local('Montserrat ExtraLight'), local('Montserrat-ExtraLight'),
+        url('../css/font/Montserrat-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('../css/font/Montserrat-ExtraLight.woff2') format('woff2'),
+        url('../css/font/Montserrat-ExtraLight.woff') format('woff'),
+        url('../css/font/Montserrat-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/css/font/Montserrat-Light.eot');
+    src: local('Montserrat Light'), local('Montserrat-Light'),
+        url('../css/font/Montserrat-Light.eot?#iefix') format('embedded-opentype'),
+        url('../css/font/Montserrat-Light.woff2') format('woff2'),
+        url('../css/font/Montserrat-Light.woff') format('woff'),
+        url('../css/font/Montserrat-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/css/font/Montserrat-Medium.eot');
+    src: local('Montserrat Medium'), local('Montserrat-Medium'),
+        url('../css/font/Montserrat-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../css/font/Montserrat-Medium.woff2') format('woff2'),
+        url('../css/font/Montserrat-Medium.woff') format('woff'),
+        url('../css/font/Montserrat-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/css/font/Montserrat-SemiBold.eot');
+    src: local('Montserrat SemiBold'), local('Montserrat-SemiBold'),
+        url('../css/font/Montserrat-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('../css/font/Montserrat-SemiBold.woff2') format('woff2'),
+        url('../css/font/Montserrat-SemiBold.woff') format('woff'),
+        url('../css/font/Montserrat-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/css/font/Montserrat-ExtraBold.eot');
+    src: local('Montserrat ExtraBold'), local('Montserrat-ExtraBold'),
+        url('../css/font/Montserrat-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('../css/font/Montserrat-ExtraBold.woff2') format('woff2'),
+        url('../css/font/Montserrat-ExtraBold.woff') format('woff'),
+        url('../css/font/Montserrat-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/css/font/Montserrat-Black.eot');
+    src: local('Montserrat Black'), local('Montserrat-Black'),
+        url('../css/font/Montserrat-Black.eot?#iefix') format('embedded-opentype'),
+        url('../css/font/Montserrat-Black.woff2') format('woff2'),
+        url('../css/font/Montserrat-Black.woff') format('woff'),
+        url('../css/font/Montserrat-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    transition: all .2s ease-in;
+}
+
+button {
+    outline: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.profile {
+    position: relative;
+    background: #ffffff;
+    display: flex;
+    font-style: normal;
+    min-height: 100vh;
+    max-width: 768px;
+    margin: 0px auto;
+
+    @include xSmall {
+        flex-direction: column;
+    }
+}
+
+.container {    
+    margin: 0px auto;
+}
+
+.block {
+    width: 100%;
+    background: #ffffff;
+}
+
+//Carousel
+.carousel{
+
+    .arrow-left{
+        &__btn{
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            position: absolute;
+            left: 16px;
+            top: 16px;
+            z-index: 2;
+            border: none;
+            cursor: pointer;
+
+            .fa-arrow-left{
+                margin: 0px auto;
+                position: relative;
+                display: block;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                &:before{
+                    content: "";
+                    margin: 0px auto;
+                    position: relative;
+                    display: block;
+                    mix-blend-mode: normal;
+                    color: #ffffff;
+                    background-image: url('../img/Shape.svg');
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+        }
+    }
+    .carousel-indicators {
+        position: absolute;
+        right: 0;
+        bottom: 50px;
+        left: 0;
+        z-index: 15;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding-left: 0;
+        margin: 0px 16px;
+        list-style: none;
+
+            li{
+                background-color: rgba(255, 255, 255, 0.6);
+                height: 4px;
+                width: 39.52px;
+                border: 0px;
+
+                &.active {
+                    opacity: 1;
+                    background-color: #ffffff;
+                }
+                &:first-child{
+                    border-top-left-radius: 2px;
+                    border-bottom-left-radius: 2px;
+                }
+                &:last-child{
+                    border-top-right-radius: 2px;
+                    border-bottom-right-radius: 2px;
+                }
+            }
+    }
+    .carousel-inner{
+        
+        .carousel-item{
+            
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+//Content
+.info-profile{
+    background-color: #ffffff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    z-index: 3;
+    margin-top: -37px;
+    position: relative;
+    padding: 16px;
+
+    &__header{
+        display: flex;
+        align-items: center;
+
+        .BIO{
+            display: flex;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 24px;
+            color: #000000;
+            line-height: 29px;
+            padding: 0px 8px;
+
+            h3{
+                margin-bottom: 0px;
+                line-height: normal;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 24px;
+                color: #000000;
+            }
+            .age{
+                padding-left: 10px;
+            }
+        }
+
+        .online-icon{
+            background: #10B56B;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+        }
+    }
+    &__about-me{
+        padding: 20px 0px;
+
+        p{
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+            color: #000000;
+            margin: 0px;
+        }
+    }
+
+    &__interests{
+
+        h4{
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 24px;
+            color: #000000;
+            margin: 12px 0px;
+        }
+    }
+
+    .blocks-container {
+
+        &__list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            margin-bottom: 0px;
+
+            li {
+                background: #F4F4F4;
+                border-radius: 8px;
+                height: 32px;
+                z-index: 2;
+                margin-right: 8px;
+                border: none;
+                cursor: pointer;
+                display: inline-block;
+                vertical-align: sub;
+                padding: 6px 12px;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 20px;
+                color: #848484;
+                margin-bottom: 8px;
+
+                &.active{
+                    background: #2196F3;
+                    color: #ffffff;
+                }
+
+                .fa{
+                    margin: 0px auto;
+                    position: relative;
+                    margin-right: 8px;
+                    vertical-align: middle;
+
+                    &:before{
+                        content: "";
+                        margin: 0px auto;
+                        position: relative;
+                        display: block;
+                        color: #848484;;
+                        background-repeat: no-repeat;
+                        width: 16px;
+                        height: 16px;
+                    }
+                }
+
+                span{
+                    vertical-align: middle;
+                }
+
+                .fa-height{
+                    background-image: url('../img/icon_height.png');
+                    width: 17px;
+                    height: 17px;
+                }
+                .fa-weight{
+                    background-image: url('../img/icon_weight.svg');
+                }
+                .fa-body-type{
+                    background-image: url('../img/icon_bodytype.png');
+                }
+                .fa-hair-color{
+                    background-image: url('../img/icon_haircolor.svg');
+                }
+                .fa-religion{
+                    background-image: url('../img/icon_religion.svg');
+                }
+                .fa-smoking{
+                    background-image: url('../img/icon_smoking.svg');
+                    width: 18px;
+                }
+                .fa-relationship{
+                    background-image: url('../img/icon_relationship.svg');
+                }
+                .fa-alcohol{
+                    background-image: url('../img/icon_alcohol.svg');
+                }
+                .fa-children{
+                    background-image: url('../img/icon_child.png');
+                    width: 13px;
+                    height: 18px;
+                }
+                .fa-sexuality{
+                    background-image: url('../img/icon_sexuality.svg');
+                }
+            }
+        }
+    }
+
+    &__additional-data{
+
+        .item {
+            margin: 16px 0px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            h5{
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 20px;
+                color: #848484;
+                margin-bottom: 4px;
+            }
+            span{
+                margin-right: 12px;
+            }
+            p{
+                font-style: normal;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 24px;
+                color: #000000;
+                display: inline-flex;
+                width: 85%;
+                margin: 0;
+            }
+        }
+        .holder {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+
+            span {
+                margin-top: 2px;
+            }
+        }
+    }
+    &__report{
+        margin: 36px 0px 24px;
+
+        .report-btn{
+            border: 1px solid #848484;
+            box-sizing: border-box;
+            border-radius: 8px;
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+            color: #848484;
+            width: 100%;
+            margin: 0px auto;
+            padding: 14px 0px;
+            display: block;
+            text-align: center;
+        }
+    }
+    &__like{
+        padding-bottom: 16px;
+    }
+}
+
+// Icons
+.icon{
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    border: none;
+    z-index: 2;
+    border: none;
+    cursor: pointer;
+
+    i{
+        margin: 0px auto;
+        position: absolute;
+        display: inline-block;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        vertical-align: middle;
+    }
+}
+.verification-icon{
+    background: #2196F3;
+    width: 20px;
+    height: 20px;
+
+    .fa-verification{
+
+        &:before{
+            content: "";
+            margin: 0px auto;
+            position: relative;
+            display: block;
+            mix-blend-mode: normal;
+            color: #ffffff;
+            background-image: url('../img/verefication-icon.svg');
+            width: 10px;
+            height: 7px;
+        }
+    }
+}
+
+.facebook-icon{
+    background: #703EF0;
+    width: 20px;
+    height: 20px;
+
+    .fa-facebook{
+        -webkit-transform: translate(-50%, -30%);
+        transform: translate(-50%, -30%);
+
+        &:before{
+            color: #ffffff;
+
+        }
+    }
+}
+
+.like-icon{
+    background: #FFFFFF;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
+    width: 56px;
+    height: 56px;
+    display: block;
+    margin: 0px auto;
+
+    .fa-like{
+
+        &:before{
+            content: "";
+            margin: 0px auto;
+            position: relative;
+            display: block;
+            mix-blend-mode: normal;
+            color: #ffffff;
+            background-image: url('../img/icon-like.svg');
+            width: 26px;
+            height: 26px;
+        }
+    }
+}
